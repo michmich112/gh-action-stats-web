@@ -5,6 +5,7 @@
 	import { invalidate } from '$app/navigation';
 
 	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	onMount(() => {
 		const {
 			data: { subscription }
@@ -17,5 +18,11 @@
 	});
 </script>
 
-<Navbar />
-<slot />
+<div class="h-screen flex flex-col justify-between">
+	<div>
+		<Navbar />
+		<slot />
+	</div>
+
+	<Footer />
+</div>
