@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { invalidate } from '$app/navigation';
 
+	import Navbar from '$lib/components/Navbar.svelte';
 	onMount(() => {
 		const {
 			data: { subscription }
@@ -16,4 +17,5 @@
 	});
 </script>
 
+<Navbar />
 <slot />

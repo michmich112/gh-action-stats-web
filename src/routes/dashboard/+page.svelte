@@ -1,11 +1,9 @@
 <script lang="ts">
+	// auth redirect is done serverside
 	import type { PageData } from './$types';
 
-	// import {page} from '$app/stores';
 	export let data: PageData;
-	$: ({ session } = data);
-	if (!session) {
-	}
+	$: ({ session } = data); // get data
 </script>
 
 <h1>
