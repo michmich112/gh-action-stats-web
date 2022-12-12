@@ -24,7 +24,7 @@
 			<button
 				id="userInfoButton"
 				class="flex flex-row items-center gap-1 clickable"
-				on:click={() => (userToggle = !userToggle)}
+				on:click={toggleUserDropdown}
 			>
 				<div class="h-100 flex flex-row items-center gap-2 clickable">
 					{session.user.user_metadata.name}

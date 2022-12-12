@@ -5,15 +5,18 @@
 // and what to do when importing types
 declare namespace App {
   interface Supabase {
-    Database: import('./DatabaseDefinitions').Database;
+    Database: import('$lib/types/database.types').Database;
+    SchemaName: 'public';
   }
   // interface Error {}
-  // interface Locals {}
+  // interface Locals {
+  //   action: import('$lib/types/Action.type').ActionMetadata;
+  // }
+
   interface PageData {
     session: import('@supabase/supabase-js').Session | null;
   }
 
-  // interface PageData {}
   // interface Platform {}
 }
 
