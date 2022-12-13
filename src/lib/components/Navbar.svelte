@@ -38,7 +38,7 @@
 			{#if userToggle}
 				<div
 					id="userInfo"
-					class={`absolute z-10 max-w-45 right-1 bg-white rounded mt-[5px] mr-[5px] divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
+					class={`absolute z-10 max-w-45 right-1 bg-white rounded mt-[5px] mr-[5px] divide-y divide-gray-100 shadow dark:shadow-white dark:bg-gray-700 dark:divide-gray-600`}
 					use:clickOutside
 					on:click_outside={() => (userToggle = false)}
 				>

@@ -2,6 +2,7 @@
 	import type { ActionMetadata } from '$lib/types/Action.type';
 	import { getDateDifferenceString } from '$lib/utils/date-utils';
 	import { clickOutside } from '$lib/directives/clickOutside';
+	import { goto } from '$app/navigation';
 
 	// props
 	export let action: ActionMetadata;
@@ -16,7 +17,7 @@
 
 <button
 	class="w-full p-2 shadow-md rounded-md cursor-pointer transition ease-in-out duration-75 hover:shadow-xl hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:font-light hover:dark:bg-gray-500"
-	on:click={() => console.log('tata')}
+	on:click={() => goto(encodeURI(`/dashboard/${action.creator}/${action.name}`))}
 >
 	<div class="flex flex-row justify-between items-center">
 		<div class="truncate">

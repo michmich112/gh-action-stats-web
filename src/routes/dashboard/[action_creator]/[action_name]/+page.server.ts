@@ -1,18 +1,20 @@
-import { getOwnedActions } from '$lib/server/action';
-import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad, PageServerLoadEvent } from './$types';
+import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async (event: PageServerLoadEvent) => {
   const parent = await event.parent();
   if (!parent.session) {
-    throw redirect(307, '/'); //TODO: Redirect to auth page
+    throw redirect(307, '/');
   }
 
-  console.log('server');
   try {
+    // get action data
     return {
-      ownedActions: (await getOwnedActions(event)) ?? [],
-      error: null
+      action: {
+        metrics: {
+          runs: 5
+        }
+      }
     };
   } catch (e) {
     return {

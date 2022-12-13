@@ -19,7 +19,7 @@
 </script>
 
 <div class="h-screen flex flex-col justify-between">
-	<div>
+	<div class="h-full flex flex-col justify-start">
 		<Navbar />
 		<slot />
 	</div>
