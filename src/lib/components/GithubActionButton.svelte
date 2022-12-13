@@ -26,7 +26,12 @@
 			<div>
 				{dateStr}
 			</div>
-			<button id={`${action.name}-optionsButton`} on:click={toggleOptions}>
+			<button
+				id={`${action.name}-optionsButton`}
+				on:click|stopPropagation={toggleOptions}
+				use:clickOutside
+				on:click_outside={() => (optionsToggle = false)}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -47,12 +52,11 @@
 			</button>
 		</div>
 	</div>
+
 	{#if optionsToggle}
 		<div
 			id={`${action.name}-options`}
 			class={`absolute z-10 min-w-15 max-w-45 right-1 mt-2 bg-white rounded mr-2 shadow dark:shadow-white dark:bg-gray-700 dark:divide-gray-600`}
-			use:clickOutside
-			on:click_outside={() => (optionsToggle = false)}
 		>
 			<ul
 				class="py-1 text-sm text-gray-700 dark:text-gray-200"
