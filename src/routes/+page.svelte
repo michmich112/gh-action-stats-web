@@ -1,8 +1,4 @@
-<script>
-	import GithubAuth from '$lib/components/GithubAuth.svelte';
-</script>
-
-<div class="hero min-h-screen bg-base-200">
+<div class="hero h-full bg-base-200">
 	<div class="hero-content text-center">
 		<div class="max-w-md">
 			<h1 class="text-3xl font-bold underline">Welcome to SvelteKit</h1>
@@ -10,5 +6,3 @@
 		</div>
 	</div>
 </div>
-
-<GithubAuth />

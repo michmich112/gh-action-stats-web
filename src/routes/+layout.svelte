@@ -23,6 +23,5 @@
 		<Navbar />
 		<slot />
 	</div>
-
 	<Footer />
 </div>
