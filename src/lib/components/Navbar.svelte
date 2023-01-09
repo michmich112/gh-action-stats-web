@@ -35,6 +35,27 @@
 					/>
 				</div>
 			</button>
+			<div class="dropdown dropdown-end">
+				<label tabindex={0} class="btn btn-ghost">
+					<div class="h-100 flex flex-row items-center gap-2">
+						{session.user.user_metadata.name}
+						<img
+							src={session.user.user_metadata.avatar_url}
+							alt="user_icon "
+							class="nav-img rounded-3xl"
+						/>
+					</div>
+				</label>
+				<ul tabindex={0} class="dropdown-content menu p-2 shadow bg-base-100 rounded-box">
+					<li>
+						<a href="/dashboard" on:click={toggleUserDropdown}>Dashboard</a>
+					</li>
+					<li>
+						<a href="/settings" disabled on:click={toggleUserDropdown}>Settings</a>
+					</li>
+				</ul>
+			</div>
+
 			{#if userToggle}
 				<div
 					id="userInfo"

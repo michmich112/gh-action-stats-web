@@ -8,7 +8,6 @@ export const load: PageServerLoad = async (event: PageServerLoadEvent) => {
     throw redirect(307, '/'); //TODO: Redirect to auth page
   }
 
-  console.log('server');
   try {
     return {
       ownedActions: (await getOwnedActions(event)) ?? [],
