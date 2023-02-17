@@ -11,7 +11,7 @@ export async function getOwnedActions(event: PageServerLoadEvent): Promise<Actio
 
   const { data, error } = await supabaseClient
     .from('Actions')
-    .select('creator, name, last_update')
+    .select('id, creator, name, last_update')
     .eq('creator', session.user.user_metadata.user_name);
   if (error) {
     console.error(`[getOwnedActions][Error] - `, error);
