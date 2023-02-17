@@ -4,6 +4,12 @@
 	$: ({ action, error } = data);
 </script>
 
+<div class="text-sm breadcrumbs pl-7">
+	<ul>
+		<li><a href="/dashboard">Dashboard</a></li>
+		<li>{action?.name ?? 'Error'}</li>
+	</ul>
+</div>
 {#if action}
 	<!-- <p>{JSON.stringify(action)}</p> -->
 	<div class="stats shadow">
