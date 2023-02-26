@@ -1,4 +1,5 @@
-import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-auto';
+import adapter from '@svelte/adapter-netlify';
 import sp from 'svelte-preprocess';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -9,7 +10,10 @@ const config = {
 	preprocess: [vitePreprocess(), sp({ postcss: true })],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			edge: false,
+			split: true
+		})
 	}
 };
 

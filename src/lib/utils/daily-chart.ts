@@ -5,12 +5,9 @@ export function getDailyChartOptions(action: any): any {
       ...acc,
       [new Date(Date.parse(cur.ts)).toLocaleDateString()]: cur
     }));
-    console.log(action?.metrics.stats);
-    console.log(start_date);
     const number_of_days = Math.ceil(
       (new Date().getTime() - start_date.getTime()) / (1000 * 3600 * 24)
     );
-    console.log(number_of_days);
     const dates = [...new Array(number_of_days)].map((_, i: number) => {
       const a = new Date(start_date);
       a.setDate(start_date.getDate() + i);
