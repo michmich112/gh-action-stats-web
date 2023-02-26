@@ -1,5 +1,5 @@
 // import adapter from '@sveltejs/adapter-auto';
-import adapter from '@svelte/adapter-netlify';
+import adapter from '@sveltejs/adapter-netlify';
 import sp from 'svelte-preprocess';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
