@@ -1,6 +1,11 @@
 import type { PageServerLoad, PageServerLoadEvent } from './$types';
 import { redirect } from '@sveltejs/kit';
-import { getAverageLatencyMs, getTotalReposCount, getTotalRuns } from '$lib/server/runs';
+import {
+  getAlltimeDailyStats,
+  getAverageLatencyMs,
+  getTotalReposCount,
+  getTotalRuns
+} from '$lib/server/runs';
 
 export const load: PageServerLoad = async (event: PageServerLoadEvent) => {
   const parent = await event.parent();
@@ -21,7 +26,10 @@ export const load: PageServerLoad = async (event: PageServerLoadEvent) => {
         metrics: {
           runs: await getTotalRuns(event, action),
           repo_count: await getTotalReposCount(event, action),
-          avg_latency: await getAverageLatencyMs(event, action)
+          avg_latency: await getAverageLatencyMs(event, action),
+          stats: {
+            all_time: await getAlltimeDailyStats(event, action)
+          }
         }
       }
     };

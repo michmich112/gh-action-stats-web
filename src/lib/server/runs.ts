@@ -90,3 +90,32 @@ export async function getAverageLatencyMs(
 
   return (data as number) || 0;
 }
+
+export async function getAlltimeDailyStats(
+  event: PageServerLoadEvent,
+  action: ActionPk
+): Promise<any> {
+  const { session, supabaseClient } = await getSupabase(event);
+  if (!session) {
+    console.error(`[getAlltimeDailyStats][Error] - No session`);
+    throw new Error('Unauthorized');
+  }
+
+  if (action.creator !== session.user.user_metadata.user_name) {
+    console.error(`[getAlltimeDailyStats][Unauthorized] - Session user is not creator`);
+    throw new Error('Unauthorized');
+  }
+
+  const { data, error } = await supabaseClient.rpc('get_daily_stats_all_time', {
+    name: action.name,
+    creator: action.creator
+  });
+
+  if (error) {
+    console.log(`data`, data);
+    console.error(`[getAlltimeDailyStats][Error] - Error getting all the runs.`, error);
+    throw error;
+  }
+
+  return (data as any) || 0;
+}

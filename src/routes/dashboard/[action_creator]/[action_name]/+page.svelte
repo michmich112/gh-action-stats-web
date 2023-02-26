@@ -1,7 +1,12 @@
 <script lang="ts">
+	// import { stringify } from 'postcss';
 	import type { PageData } from './$types';
+	import { echarts } from '$lib/echarts';
+	import { getDailyChartOptions } from '$lib/utils/daily-chart';
 	export let data: PageData;
 	$: ({ action, error } = data);
+
+	$: options = getDailyChartOptions(action);
 </script>
 
 <div class="text-sm breadcrumbs pl-7">
@@ -31,6 +36,11 @@
 			<div class="stat-desc">All time</div>
 		</div>
 	</div>
+	{#if options}
+		<div class="stats shadow w-full">
+			<div class="stat w-full h-80" use:echarts={options} />
+		</div>
+	{/if}
 {:else}
 	<div>Error</div>
 {/if}
